@@ -1,55 +1,55 @@
-# magist-eniac-partnership-analysis
+# Magist x Eniac: Partnership Analysis
 
-## Project overview
-Analysis of the Magist dataset using SQL and Tableau.
-Completed as a data analytics bootcamp project, working in a small group.
-Magist is posited as a brazilian E-commerce company.
-This is a limited project representing a first exposure to SQL.
+📊 **[Interactive dashboard on Tableau Public](https://public.tableau.com/views/MagistAnalysis_17864646285000/MagistAnalysisandLink)**
 
-## Key questions
-- Would magist be a good cooperation partner for a larger Spanish tech company ('ENIAC') focused on apple products.
-- Can magist handle the volumes
-- Does magist have the proper market segment that we need already?
-- Does magist handle the logistics to ENIACs satisfaction?
+Eniac, a Spanish online retailer of Apple-compatible tech, wants to enter the Brazilian market. Magist, a Brazilian e-commerce marketplace, is offering a partnership. Is Magist the right partner?
 
-## Technologies
-MySQL
-Tableau
+A WBS Coding School bootcamp project done in a small group, and my first real work with SQL.
 
-## Dataset
-Magist e-commerce database (Brazilian marketplace, MySQL). Includes orders, order_items, products, sellers, customers, reviews, and payments tables —  see schema diagram below.
+## The questions
+- **Market fit:** Does Magist already sell tech, and does it sell expensive tech?
+- **Scale:** Is Magist big enough for Eniac, and how much do its tech sellers earn?
+- **Logistics:** Are orders delivered on time, and does a late delivery hurt customer reviews?
 
-![database_schema](images/database_schema.png)
+## Findings
+**We advised against the partnership.**
+- Tech is a small part of Magist: about 15% of items sold, and 493 of 3,095 sellers (16%).
+- Most items sold are cheap. Magist has little experience with premium products like the ones Eniac sells.
+- Customer retention is very low, so Magist brings few loyal customers.
+- Eniac would likely do better with another partner, or on its own, which would let it scale at its own pace.
 
+![Magist vs Eniac](images/Magist_vs_ENIAC.png)
+![Customer retention](images/customer_retention.png)
 
-## Setup
-1. Load `magist_dump.sql` into a local MySQL instance
-2. Run queries in `Group_SQL_Analysis.sql` / `Individual_SQL_Analysis.sql`
+The Tableau dashboard goes into the delivery side: how delays and estimated delivery times vary by region, and how they relate to review scores.
 
+## Data
+The Magist database (MySQL): orders, order items, products, sellers, customers, reviews, payments and geolocation, covering 25 months of orders.
 
-## Repo Structure
+![Database schema](images/database_schema.png)
+
+## Tools
+MySQL, Tableau
+
+## Repo structure
 ```
-├── Group_1_Magist_Proposal.pdf      # Final presentation for ENIAC
-├── magist_dump.sql                  # SQL dump to load the database
-├── magist_schema.pdf                # Database ER diagram
-├── Group_SQL_Analysis.sql           # Structured group analysis (Q2.1–Q2.3)
-├── Individual_SQL_Analysis.sql      # My independent working-through of the same questions
-├── exploratory_scratch.sql          # Early scratch queries, not part of final analysis
+├── sql/
+│   ├── Group SQL Analysis.sql         Structured group analysis (questions 2.1 to 2.3)
+│   ├── Individual SQL Analysis.sql    My own pass through the same questions
+│   └── exploratory_scratch.sql        First warm-up queries
+├── tableau/
+│   └── Magist Analysis.twb            Tableau workbook (reads the CSVs in data/)
+├── docs/
+│   ├── Group 1 Magist Proposal.pdf    Final presentation to Eniac
+│   └── magist_schema.pdf              Database diagram
+├── images/                            Charts used in this README
 └── README.md
 ```
 
-## Key Findings
-- We would advice against a cooperation
-- Magist is too small for the size of ENIAC
-- Magist has little experience in the premium tech segment that apple products represent
-- Magist has a very little customer retention
-- ENIAC would probably do better with another partner or indeed on their own, which opens the possibility of scaling dynamically
+## Setup
+1. Load the Magist database dump (provided by WBS Coding School, not included here) into a local MySQL server.
+2. Run the queries in `sql/`.
+3. For the Tableau workbook, export the tables to CSV and point the workbook at that folder. The published dashboard above is easier.
 
-![Customer Retention](images/customer_retention.png)
-![Magist vs ENIAC chart](images/Magist_vs_ENIAC.png)
-
-## Author
-Author: Niklas Livchitz — independent analysis and SQL deep dive
-Group project: shared discussion and SQL work with final presentation (Group 1 Magist Proposal.pdf) were produced with bootcamp group collaborators.
-
-
+## Credits
+Niklas Livchitz: individual SQL analysis and the Tableau dashboard. The group analysis and the final presentation were made together with my bootcamp group.
